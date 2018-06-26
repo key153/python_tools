@@ -110,4 +110,4 @@ def type_list(num):
 		return change_pattern(change_fone(change_borders(create_style(), 0x3A),1, True, 'Arial',xlwt.Font.UNDERLINE_NONE),0x10)
 
 	else:
-		print "No type to choose."
+		print ("No type to choose.")
