@@ -19,15 +19,6 @@ def get_folder_name(path):
     return path_name_list
 
 
-# 获取文件夹下所有文件名（不含路径），包含子文件夹下所有文件，以列表返回
-def get_file_name(path):
-    file_name_list = []
-    for dirpath, dirnames, filenames in os.walk(path):
-        for name in filenames:
-            file_name_list.append(name)
-    return file_name_list
-
-
 # 获取文件夹下所有文件路径，包含子文件夹下所有文件，以列表返回
 def get_file_path(path):
     file_path_list = []
@@ -37,6 +28,93 @@ def get_file_path(path):
     return file_path_list
 
 
+# 获取文件夹下所有文件名（不含路径），包含子文件夹下所有文件，以列表返回
+def get_file_name(path):
+    file_name_list = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for name in filenames:
+            file_name_list.append(name)
+    return file_name_list
+
+
+# 获取当前路径下文件和文件夹的数量，不包含子文件夹下文件
+def get_file_amount(path):
+    count = 0
+    for fn in os.listdir(path):  # fn 表示的是文件名
+        count = count + 1
+    return count
+
+
+# 查找以name为开头的文件，以列表形式返回带路径的文件名
+def find_startswith_file_path(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if file.startswith(name):
+            new_file_list.append(os.path.join(path,file))
+        else:
+            continue
+    return new_file_list
+
+
+# 查找以name为开头的文件，以列表形式返回文件名（不包含路径）
+def find_startswith_file_name(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if file.startswith(name):
+            new_file_list.append(file)
+        else:
+            continue
+    return new_file_list
+
+
+# 查找以name为结尾的文件，以列表形式返回带路径的文件名
+def find_endswith_file_path(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if file.endswith(name):
+            new_file_list.append(os.path.join(path, file))
+        else:
+            continue
+    return new_file_list
+
+
+# 查找以name为结尾的文件，以列表形式返回文件名（不包含路径）
+def find_endswith_file_name(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if file.endswith(name):
+            new_file_list.append(file)
+        else:
+            continue
+    return new_file_list
+
+
+# 查找包含name的文件，以列表形式返回带路径的文件名
+def find_in_file_path(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if name in file:
+            new_file_list.append(os.path.join(path, file))
+        else:
+            continue
+    return new_file_list
+
+
+# 查找包含name的文件，以列表形式返回文件名（不包含路径）
+def find_in_file_name(path, name):
+    new_file_list = []
+    file_list = get_file_name(path)
+    for file in file_list:
+        if name in file:
+            new_file_list.append(file)
+        else:
+            continue
+    return new_file_list
 
 '''
 # -----------复制-----------
