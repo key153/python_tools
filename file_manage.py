@@ -2,6 +2,43 @@
 import os, shutil
 
 
+# 获取文件夹下所有文件夹路径，包含子文件夹，以列表返回
+def get_folder_path(path):
+    path_list = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        path_list.append(dirpath)
+    return path_list[1:]
+
+
+# 获取文件夹下所有文件夹名（不含路径），包含子文件夹，以列表返回
+def get_folder_name(path):
+    path_name_list = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for dirname in dirnames:
+            path_name_list.append(dirname)
+    return path_name_list
+
+
+# 获取文件夹下所有文件名（不含路径），包含子文件夹下所有文件，以列表返回
+def get_file_name(path):
+    file_name_list = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for name in filenames:
+            file_name_list.append(name)
+    return file_name_list
+
+
+# 获取文件夹下所有文件路径，包含子文件夹下所有文件，以列表返回
+def get_file_path(path):
+    file_path_list = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for name in filenames:
+            file_path_list.append(os.path.join(dirpath,name))
+    return file_path_list
+
+
+
+'''
 # -----------复制-----------
 
 # 复制带path的文件到新的path
@@ -88,6 +125,6 @@ os.remove(path)
 # 函数用来运行shell命令。
 os.system(command)
 
-
+'''
 
 
