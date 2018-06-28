@@ -45,7 +45,7 @@ def get_file_amount(path):
     return count
 
 
-# 查找以name为开头的文件，以列表形式返回带路径的文件名
+# 查找以name为开头的文件，以列表形式返回带路径的文件名,不支持带子文件的路径
 def find_startswith_file_path(path, name):
     new_file_list = []
     file_list = get_file_name(path)
@@ -69,7 +69,7 @@ def find_startswith_file_name(path, name):
     return new_file_list
 
 
-# 查找以name为结尾的文件，以列表形式返回带路径的文件名
+# 查找以name为结尾的文件，以列表形式返回带路径的文件名,不支持带子文件的路径
 def find_endswith_file_path(path, name):
     new_file_list = []
     file_list = get_file_name(path)
@@ -93,7 +93,7 @@ def find_endswith_file_name(path, name):
     return new_file_list
 
 
-# 查找包含name的文件，以列表形式返回带路径的文件名
+# 查找包含name的文件，以列表形式返回带路径的文件名,不支持带子文件的路径
 def find_in_file_path(path, name):
     new_file_list = []
     file_list = get_file_name(path)
@@ -115,6 +115,8 @@ def find_in_file_name(path, name):
         else:
             continue
     return new_file_list
+
+
 
 '''
 # -----------复制-----------
