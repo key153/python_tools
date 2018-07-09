@@ -37,7 +37,29 @@ def get_file_name(path):
     return file_name_list
 
 
-# 获取当前路径下文件和文件夹的数量，不包含子文件夹下文件
+# 获取路径下的子文件夹，不包含子文件夹里面的文件夹，以列表形式返回
+def get_son_folder(path):
+    folder_list = []
+    for folder in os.listdir(path):
+        if (os.path.isdir(path + '\\' + folder)):
+            folder_list.append(path + '\\' + folder)
+        else:
+            continue
+    return folder_list
+
+
+# 获取路径下的子文件，不包含子文件夹里面的文件，以列表形式返回
+def get_son_file(path):
+    file_list = []
+    for file in os.listdir(path):
+        if (os.path.isfile(path + '\\' + file)):
+            file_list.append(path + '\\' + file)
+        else:
+            continue
+    return file_list
+
+
+# 获取路径下文件和文件夹的数量，不包含子文件夹下文件
 def get_file_amount(path):
     count = 0
     for fn in os.listdir(path):  # fn 表示的是文件名
