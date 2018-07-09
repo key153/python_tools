@@ -2,7 +2,7 @@
 
 > 基于python3.6
 
-> Pillow 5.1.0, xlrd 1.1.0, xlwt 1.3.0
+> 第三方包版本：Pillow 5.1.0, xlrd 1.1.0, xlwt 1.3.0
 
 ## 文件管理
 

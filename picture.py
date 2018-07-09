@@ -54,3 +54,17 @@ def thumbnail_pic(pic, w, h):
     img = Image.open(pic)
     img.thumbnail((w, h))
     return img
+
+
+# 将图片转换为灰阶图片
+def get_pic_grey(pic):
+    img = Image.open(pic)
+    return img.convert('L')
+
+
+# 获取图片中某一点的RGB值
+def get_RGB(pic, x, y):
+    img = Image.open(pic)
+    pix = img.load()
+    r, g, b = pix[x, y]
+    return (r, g, b)
