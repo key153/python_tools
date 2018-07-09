@@ -34,3 +34,23 @@ def route_angle_90(pic):
 def route_angle_180(pic):
     new_pic = pic.transpose(Image.ROTATE_180)
     return new_pic
+
+
+# 获取图片的格式，例如：‘JPEG’
+def get_format(pic):
+    img = Image.open(pic)
+    return img.format
+
+
+# 将图片缩放成宽为w，高为h的图片
+def resize_pic(pic, w, h):
+    img = Image.open(pic)
+    new_pic = img.resize((w, h))
+    return new_pic
+
+
+# 将图片进行等比例缩放
+def thumbnail_pic(pic, w, h):
+    img = Image.open(pic)
+    img.thumbnail((w, h))
+    return img
