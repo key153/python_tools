@@ -1,5 +1,5 @@
 #-*- encoding:UTF-8 -*-
-import os, shutil
+import os, shutil, hashlib
 
 
 # 获取文件夹下所有文件夹路径，包含子文件夹，以列表返回
@@ -116,6 +116,12 @@ def find_in_file_name(path, name):
             continue
     return new_file_list
 
+
+# 获取文件的md5值
+def get_md5(path):
+    m5 = hashlib.md5()
+    m5.update(path.encode('utf-8'))
+    return m5.hexdigest()
 
 
 '''
