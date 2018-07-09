@@ -120,7 +120,8 @@ def find_in_file_name(path, name):
 # 获取文件的md5值
 def get_md5(path):
     m5 = hashlib.md5()
-    m5.update(path.encode('utf-8'))
+    f = open(path, 'rb')
+    m5.update(f.read())
     return m5.hexdigest()
 
 
